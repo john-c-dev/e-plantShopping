@@ -10,7 +10,7 @@ const CartItem = ({ onContinueShopping }) => {
   const calculateTotalNumber = () => {
     let total = 0
     cart.forEach((item) => {
-      total += item.quantity
+      total = item.quantity + total
     })
 
     return total
@@ -60,8 +60,8 @@ const CartItem = ({ onContinueShopping }) => {
 
   return (
     <div className="cart-container">
-      <h2 style={{ color: 'black' }}>Total number of plants: {calculateTotalAmount()}</h2>
-      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalNumber()}</h2>
+      <h2 style={{ color: 'black' }}>Total number of plants: {calculateTotalNumber()}</h2>
+      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
       <div>
         {cart.map(item => (
           <div className="cart-item" key={item.name}>
